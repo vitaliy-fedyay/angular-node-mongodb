@@ -1,0 +1,39 @@
+<mat-card class="container">
+
+  <mat-card-title class="title">Registration</mat-card-title>
+
+  <form class="form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="full-width">
+      <mat-label>Enter name:</mat-label>
+      <input matInput type="text" formControlName="name" name="name" id="name">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Enter surname:</mat-label>
+      <input matInput type="text" formControlName="surname" name="surname" id="surname">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Enter email:</mat-label>
+      <input matInput type="email" formControlName="email" name="email" id="email">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Enter phone:</mat-label>
+      <input matInput type="tel" formControlName="phone" name="phone" id="phone">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Enter pasword:</mat-label>
+      <input matInput type="password" formControlName="password" name="password" id="password">
+    </mat-form-field>
+    <br>
+    <br>
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.formGroup.invalid">Registration</button>
+    <button type="submit" mat-raised-button [routerLink]="['/login']"
+      routerLinkActive="router-link-active">Login</button>
+  </form>
+
+</mat-card>

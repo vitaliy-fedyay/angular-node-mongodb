@@ -1,0 +1,23 @@
+<mat-card class="container">
+
+	<mat-card-title class="title">Login</mat-card-title>
+
+	<form class="form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit()">
+
+		<mat-form-field class="full-width">
+			<mat-label>Enter email:</mat-label>
+			<input matInput type="email" formControlName="email" name="email" id="email">
+		</mat-form-field>
+
+		<mat-form-field class="full-width">
+			<mat-label>Enter pasword:</mat-label>
+			<input matInput type="password" formControlName="password" name="password" id="password">
+		</mat-form-field>
+		<br>
+		<br>
+		<button type="submit" mat-raised-button color="primary" [disabled]="form.formGroup.invalid">Login</button>
+		<button type="submit" mat-raised-button [routerLink]="['/registration']"
+			routerLinkActive="router-link-active">Registration</button>
+	</form>
+
+</mat-card>
