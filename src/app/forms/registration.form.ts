@@ -18,7 +18,7 @@ export class UserFormRegister {
       surname: new FormControl(this.model.surname, [Validators.required, Validators.minLength(4)]),
       email: new FormControl(this.model.email, [Validators.required, Validators.email]),
       phone: new FormControl(this.model.phone, [Validators.required, Validators.minLength(6)]),
-      password: new FormControl(this.model.password, [Validators.required, Validators.minLength(8)])
+      password: new FormControl(this.model.password, [Validators.required, Validators.minLength(7)])
     });
   }
 }
