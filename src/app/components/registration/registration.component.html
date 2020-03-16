@@ -7,27 +7,32 @@
     <mat-form-field class="full-width">
       <mat-label>Enter name:</mat-label>
       <input matInput type="text" placeholder="Homer" formControlName="name" name="name" id="name">
+      <mat-error *ngIf="form.formGroup.controls['name'].touched">required name</mat-error>
     </mat-form-field>
 
     <mat-form-field class="full-width">
       <mat-label>Enter surname:</mat-label>
       <input matInput type="text" placeholder="Simpson" formControlName="surname" name="surname" id="surname">
+      <mat-error *ngIf="form.formGroup.controls['surname'].touched">required surname</mat-error>
     </mat-form-field>
 
     <mat-form-field class="full-width">
       <mat-label>Enter email:</mat-label>
       <input matInput type="email" placeholder="example@gmail.com" formControlName="email" name="email" id="email">
+      <mat-error *ngIf="form.formGroup.controls['email'].touched">required email</mat-error>
     </mat-form-field>
 
     <mat-form-field class="full-width">
       <mat-label>Enter phone:</mat-label>
       <input matInput type="tel" placeholder="123456" formControlName="phone" name="phone" id="phone">
+      <mat-error *ngIf="form.formGroup.controls['phone'].touched">required phone</mat-error>
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <mat-label>Enter pasword:</mat-label>
+      <mat-label>Enter password:</mat-label>
       <input matInput type="password" placeholder="minimum 7 character" formControlName="password" name="password"
         id="password">
+      <mat-error *ngIf="form.formGroup.controls['password'].touched">required password</mat-error>
     </mat-form-field>
     <br>
     <br>

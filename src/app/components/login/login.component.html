@@ -7,18 +7,14 @@
 		<mat-form-field class="full-width">
 			<mat-label>Enter email:</mat-label>
 			<input matInput type="email" placeholder="example@gmail.com" formControlName="email" name="email" id="email">
-			<mat-error *ngIf="form.formGroup.controls['email'].dirty">
-				Email must be a valid email address (example@mail.com)
-			</mat-error>
-			<mat-error *ngIf="form.formGroup.controls['email'].touched">
-				required email
-			</mat-error>
+			<mat-error *ngIf="form.formGroup.controls['email'].touched">required email</mat-error>
 		</mat-form-field>
 
 		<mat-form-field class="full-width">
 			<mat-label>Enter pasword:</mat-label>
 			<input matInput type="password" placeholder="minimum 7 character" formControlName="password" name="password"
 				id="password">
+			<mat-error *ngIf="form.formGroup.controls['password'].touched">required password</mat-error>
 		</mat-form-field>
 		<br>
 		<br>
