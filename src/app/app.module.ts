@@ -19,9 +19,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { HomeComponent } from './components/home/home.component';
 import { AuthEffects } from './store/effects/auth.effect';
 import { reducer } from './store/reducers/auth.reducer';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { PostPageComponent } from './components/post-page/post-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { reducer } from './store/reducers/auth.reducer';
     LoginComponent,
     RegistrationComponent,
     NavigationComponent,
-    HomeComponent
+    HomePageComponent,
+    PostPageComponent
   ],
   imports: [
     BrowserModule,
