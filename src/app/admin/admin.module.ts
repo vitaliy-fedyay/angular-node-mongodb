@@ -6,7 +6,7 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { AdminNavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     DashboardPageComponent,
     EditPageComponent,
     LoginPageComponent,
-    NavigationComponent
+    AdminNavigationComponent
   ],
   imports: [
     CommonModule,
