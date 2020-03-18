@@ -1,0 +1,24 @@
+<mat-card class="container">
+
+  <mat-card-title class="title">Login</mat-card-title>
+
+  <form class="form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="full-width">
+      <mat-label>Enter nickname:</mat-label>
+      <input matInput type="nickname" formControlName="nickname" name="nickname" id="nickname">
+      <mat-error *ngIf="form.formGroup.controls['nickname'].touched">required nickname</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Enter pasword:</mat-label>
+      <input matInput type="password" placeholder="minimum 7 character" formControlName="password" name="password"
+        id="password">
+      <mat-error *ngIf="form.formGroup.controls['password'].touched">required password</mat-error>
+    </mat-form-field>
+    <br>
+    <br>
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.formGroup.invalid">Login</button>
+  </form>
+
+</mat-card>

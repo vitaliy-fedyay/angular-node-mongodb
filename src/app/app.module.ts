@@ -23,6 +23,7 @@ import { AuthEffects } from './store/effects/auth.effect';
 import { reducer } from './store/reducers/auth.reducer';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PostPageComponent } from './components/post-page/post-page.component';
     RegistrationComponent,
     NavigationComponent,
     HomePageComponent,
-    PostPageComponent
+    PostPageComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,

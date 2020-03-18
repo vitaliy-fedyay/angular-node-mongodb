@@ -5,12 +5,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
-import { AppComponent } from './app.component';
-
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 
 const routes: Routes = [
   {
-    path: '', component: AppComponent, children: [
+    path: '',
+    component: MainLayoutComponent, children: [
       { path: '', redirectTo: '/', pathMatch: 'full' },
       { path: '', component: HomePageComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent },
@@ -19,7 +19,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'admin', loadChildren: './admin/admin.module#AdminModule'
+    path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   }
 ];
 
