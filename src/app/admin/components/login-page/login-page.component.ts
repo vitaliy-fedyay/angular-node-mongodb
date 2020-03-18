@@ -26,7 +26,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    this.authAdminService.login(this.formGetter.nickname.value, this.formGetter.nickname.value);
+    this.authAdminService.login(this.formGetter.email.value, this.formGetter.password.value);
   }
 
 }

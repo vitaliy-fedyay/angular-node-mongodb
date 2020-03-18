@@ -14,7 +14,7 @@ export class AdminFormLogin {
 
   public createForm(): void {
     this.formGroup = this.formBuilder.group({
-      nickname: new FormControl(this.model.nickname, Validators.required),
+      email: new FormControl(this.model.email, Validators.required),
       password: new FormControl(this.model.password, Validators.required),
     });
   }
