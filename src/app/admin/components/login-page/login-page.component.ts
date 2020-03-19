@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Admin } from '../../model/admin.model';
 import { AdminFormLogin } from '../../forms/login.form';
 import { AuthAdminService } from '../../services/auth-admin.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login-page',

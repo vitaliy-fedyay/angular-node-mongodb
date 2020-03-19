@@ -2,5 +2,6 @@
 	<mat-toolbar-row>
 		<span>Admin Panel</span>
 		<span class="example-spacer"></span>
+		<span *ngIf="token" class="logout" (click)="logout()">Logout</span>
 	</mat-toolbar-row>
 </mat-toolbar>

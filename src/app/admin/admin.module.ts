@@ -17,6 +17,7 @@ import { AdminNavigationComponent } from './components/navigation/navigation.com
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { AdminGuard } from './guards/admin.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,10 @@ import { AdminGuard } from './guards/admin.guard';
   ],
   imports: [
     CommonModule,
-    MatToolbarModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatToolbarModule,
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
@@ -41,8 +43,8 @@ import { AdminGuard } from './guards/admin.guard';
     RouterModule.forChild([
       {
         path: '', component: AdminComponent, children: [
-          { path: '', redirectTo: '/admin/login-page', pathMatch: 'full' },
-          { path: 'login-page', component: LoginPageComponent },
+          { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
+          { path: 'login', component: LoginPageComponent },
           { path: 'dashboard', component: DashboardPageComponent, canActivate: [AdminGuard] },
           { path: 'create', component: CreatePageComponent, canActivate: [AdminGuard] },
           { path: 'post/:id/edit', component: EditPageComponent, canActivate: [AdminGuard] },

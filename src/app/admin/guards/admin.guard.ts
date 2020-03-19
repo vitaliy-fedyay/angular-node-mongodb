@@ -14,7 +14,7 @@ export class AdminGuard implements CanActivate {
 
   public canActivate(): boolean {
     if (!this.authAdminService.getToken()) {
-      this.router.navigateByUrl('/admin/login-page');
+      this.router.navigateByUrl('/admin/login');
       return false;
     }
     return true;

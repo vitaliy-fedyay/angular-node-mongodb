@@ -66,7 +66,7 @@ export class AuthEffects {
     .pipe(
       ofType(AuthActionTypes.REGISTRATION_SUCCESS),
       tap((user) => {
-        localStorage.setItem('token', user.payload.token);
+        localStorage.setItem('user', user.payload.token);
         this.router.navigateByUrl('/');
       })
     );
@@ -76,7 +76,7 @@ export class AuthEffects {
     .pipe(
       ofType(AuthActionTypes.LOGOUT),
       tap((user) => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('user');
         this.router.navigateByUrl('/login');
       })
     );

@@ -10,12 +10,13 @@ import { AppState } from '../../store/app.states';
 })
 export class NavigationComponent implements OnInit {
 
+  public token = localStorage.getItem('user');
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
   }
 
-  public logOut() {
+  public logout() {
     this.store.dispatch(new Logout());
   }
 
