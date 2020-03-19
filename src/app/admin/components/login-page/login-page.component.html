@@ -1,6 +1,6 @@
 <mat-card class="container">
 
-  <mat-card-title class="title">Login</mat-card-title>
+  <mat-card-title class="title">Log in to admin panel</mat-card-title>
 
   <form class="form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit()">
 
@@ -8,6 +8,9 @@
       <mat-label>Enter email:</mat-label>
       <input matInput type="email" placeholder="Enter email" formControlName="email" name="email" id="email">
       <mat-error *ngIf="form.formGroup.controls['email'].touched">required email</mat-error>
+      <mat-error *ngIf="form.formGroup.controls['email'].dirty && form.formGroup.controls['email'].invalid">
+        email must be email@gmail.com
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="full-width">
@@ -15,10 +18,13 @@
       <input matInput type="password" placeholder="Enter password" formControlName="password" name="password"
         id="password">
       <mat-error *ngIf="form.formGroup.controls['password'].touched">required password</mat-error>
+      <mat-error *ngIf="form.formGroup.controls['password'].dirty && form.formGroup.controls['password'].invalid">
+        password must be more then 4 simbol
+      </mat-error>
     </mat-form-field>
     <br>
     <br>
-    <button type="submit" mat-raised-button color="primary" [disabled]="form.formGroup.invalid">Login</button>
+    <button type="submit" mat-raised-button color="warn" [disabled]="form.formGroup.invalid">Login</button>
   </form>
 
 </mat-card>

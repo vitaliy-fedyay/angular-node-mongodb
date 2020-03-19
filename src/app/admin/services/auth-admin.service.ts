@@ -33,5 +33,6 @@ export class AuthAdminService {
   public logout(): void {
     this.cookie.delete('admin');
   }
+
 }
 
