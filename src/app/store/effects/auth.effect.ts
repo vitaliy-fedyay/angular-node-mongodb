@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { tap, switchMap, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { AuthActionTypes, LoginSuccess, RegistrationSuccess, Login, Registration } from '../actions/auth.action';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class AuthEffects {
@@ -13,7 +14,8 @@ export class AuthEffects {
   constructor(
     private authService: AuthService,
     private actions$: Actions,
-    private router: Router
+    private router: Router,
+    private cookie: CookieService
   ) { }
 
   @Effect()
@@ -36,7 +38,7 @@ export class AuthEffects {
     .pipe(
       ofType(AuthActionTypes.LOGIN_SUCCESS),
       tap((user) => {
-        localStorage.setItem('token', user.payload.token);
+        this.cookie.set('user', user.payload.token);
         this.router.navigateByUrl('/');
       })
     );
@@ -66,7 +68,7 @@ export class AuthEffects {
     .pipe(
       ofType(AuthActionTypes.REGISTRATION_SUCCESS),
       tap((user) => {
-        localStorage.setItem('user', user.payload.token);
+        this.cookie.set('user', user.payload.token);
         this.router.navigateByUrl('/');
       })
     );
@@ -76,7 +78,7 @@ export class AuthEffects {
     .pipe(
       ofType(AuthActionTypes.LOGOUT),
       tap((user) => {
-        localStorage.removeItem('user');
+        this.cookie.delete('user');
         this.router.navigateByUrl('/login');
       })
     );

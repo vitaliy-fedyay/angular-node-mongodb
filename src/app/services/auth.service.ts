@@ -3,16 +3,20 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private cookie: CookieService
+  ) { }
 
   public getToken(): string {
-    return localStorage.getItem('token');
+    return this.cookie.get('user');
   }
 
   public login(email: string, password: string): Observable<any> {

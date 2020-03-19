@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthAdminService } from '../../services/auth-admin.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,14 +10,19 @@ import { Router } from '@angular/router';
 })
 export class AdminNavigationComponent implements OnInit {
 
-  public token = localStorage.getItem('admin');
-  constructor(private router: Router) { }
+  constructor(
+    private cookie: CookieService,
+    private router: Router,
+    private authAdminService: AuthAdminService
+  ) { }
+
+  public token = this.cookie.get('admin');
 
   ngOnInit(): void {
   }
 
   public logout(): void {
-    localStorage.removeItem('admin');
+    this.authAdminService.logout();
     this.router.navigateByUrl('admin/login');
   }
 

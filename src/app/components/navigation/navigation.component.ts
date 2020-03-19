@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Logout } from '../../store/actions/auth.action';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.states';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-navigation',
@@ -10,13 +11,17 @@ import { AppState } from '../../store/app.states';
 })
 export class NavigationComponent implements OnInit {
 
-  public token = localStorage.getItem('user');
-  constructor(private store: Store<AppState>) { }
+  constructor(
+    private store: Store<AppState>,
+    private cookie: CookieService
+  ) { }
+
+  public token = this.cookie.get('user');
 
   ngOnInit(): void {
   }
 
-  public logout() {
+  public logout(): void {
     this.store.dispatch(new Logout());
   }
 

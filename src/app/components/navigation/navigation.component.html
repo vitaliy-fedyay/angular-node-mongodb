@@ -2,6 +2,6 @@
 	<mat-toolbar-row>
 		<span>Angular</span>
 		<span class="example-spacer"></span>
-		<span class="logout" (click)="logout()">Logout</span>
+		<span *ngIf="token" class="logout" (click)="logout()">Logout</span>
 	</mat-toolbar-row>
 </mat-toolbar>
