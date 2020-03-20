@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "styles/spinner.scss";
+@import "./../node_modules/quill/dist/quill.core.css";
+@import "./../node_modules/quill/dist/quill.snow.css";
 
 html,
 body {
@@ -8,4 +10,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: url(https://images.pexels.com/photos/733856/pexels-photo-733856.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)
+    no-repeat;
+  background-size: 100%;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthAdminService } from '../../services/auth-admin.service';
-import { CookieService } from 'ngx-cookie-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -10,13 +10,14 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AdminNavigationComponent implements OnInit {
 
+  public token;
+
   constructor(
-    private cookie: CookieService,
     private router: Router,
     private authAdminService: AuthAdminService
-  ) { }
-
-  public token = this.cookie.get('admin');
+  ) {
+    this.token = this.authAdminService.currentUserValue;
+  }
 
   ngOnInit(): void {
   }

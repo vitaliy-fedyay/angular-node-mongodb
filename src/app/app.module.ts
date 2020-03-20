@@ -15,6 +15,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { QuillModule } from 'ngx-quill';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -25,6 +26,7 @@ import { reducer } from './store/reducers/auth.reducer';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { PostPageComponent } from './components/post-page/post-page.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    QuillModule.forRoot(),
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
@@ -57,4 +60,4 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
   bootstrap: [AppComponent]
 })
 export class AppModule { }
- 
+

@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
 
 import { CreatePageComponent } from './components/create-page/create-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -29,6 +30,7 @@ import { AdminGuard } from './guards/admin.guard';
     AdminNavigationComponent
   ],
   imports: [
+    QuillModule,
     CommonModule,
     HttpClientModule,
     FormsModule,
