@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://still-plains-03971.herokuapp.com/users'
+  apiUrl: 'https://still-plains-03971.herokuapp.com/'
 };
 
 /*

@@ -32,7 +32,7 @@ export class AuthAdminService {
   }
 
   public login(email: string, password: string): any {
-    return this.http.post<Admin>(`${environment.apiUrl}/admin-auth`, { email, password })
+    return this.http.post<Admin>(`${environment.apiUrl}admin-auth`, { email, password })
       .subscribe((data) => {
         if (data) {
           this.cookie.set('admin', JSON.stringify(data.token));

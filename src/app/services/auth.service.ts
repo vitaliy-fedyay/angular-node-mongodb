@@ -20,10 +20,10 @@ export class AuthService {
   }
 
   public login(email: string, password: string): Observable<any> {
-    return this.http.post<User>(`${environment.apiUrl}/login`, { email, password });
+    return this.http.post<User>(`${environment.apiUrl}login`, { email, password });
   }
 
   public registration(name: string, surname: string, email: string, phone: number, password: string): Observable<any> {
-    return this.http.post<User>(`${environment.apiUrl}/register`, { name, surname, email, phone, password });
+    return this.http.post<User>(`${environment.apiUrl}register`, { name, surname, email, phone, password });
   }
 }

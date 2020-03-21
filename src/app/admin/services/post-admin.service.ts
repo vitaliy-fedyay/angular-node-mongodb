@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from '../model/post.model';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,6 +12,6 @@ export class PostAdminService {
   constructor(private http: HttpClient) { }
 
   public createPost(post: Post): Observable<Post> {
-    return this.http.post<Post>(`${environment.apiUrl}/register`, post);
+    return this.http.post<Post>(`${environment.apiUrl}create`, post);
   }
 }
