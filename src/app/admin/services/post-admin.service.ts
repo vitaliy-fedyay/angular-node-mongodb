@@ -14,4 +14,8 @@ export class PostAdminService {
   public createPost(post: Post): Observable<Post> {
     return this.http.post<Post>(`${environment.apiUrl}create`, post);
   }
+
+  public getAllPost(): Observable<any> {
+    return this.http.get<Post>(`${environment.apiUrl}admin-posts`);
+  }
 }

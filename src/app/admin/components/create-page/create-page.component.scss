@@ -1,6 +1,5 @@
 .container {
   margin: 0 auto;
-  margin-top: 10%;
   width: 100%;
   opacity: 0.95;
 }
@@ -18,12 +17,12 @@
 
 }
 
-.title {
-  text-align: center;
-}
-
 button {
   width: 100%;
   color: white;
   background-color: rgba(14, 13, 13, 0.808);
+}
+
+.title {
+  text-align: center;
 }
