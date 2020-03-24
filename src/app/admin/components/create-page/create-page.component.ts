@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Post } from '../../model/post.model';
 import { AdminFormPost } from '../../forms/post form';
 import { PostAdminService } from '../../services/post-admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-page',
@@ -14,7 +15,10 @@ export class CreatePageComponent implements OnInit {
   private model: Post;
   public form: AdminFormPost;
 
-  constructor(private postAdminService: PostAdminService) {
+  constructor(
+    private postAdminService: PostAdminService,
+    private router: Router
+    ) {
     this.model = new Post();
     this.form = new AdminFormPost(this.model);
   }
@@ -35,6 +39,7 @@ export class CreatePageComponent implements OnInit {
     };
     console.log(post);
     this.postAdminService.createPost(post).subscribe( () => this.form.formGroup.reset());
+    this.router.navigateByUrl('/admin/dashboard')
   }
 
 }

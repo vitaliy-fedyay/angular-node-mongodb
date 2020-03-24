@@ -29,10 +29,10 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
         (data: Post[]) => {
           console.log(data);
           this.posts = data;
+          this.dataSource = new MatTableDataSource(data);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         });
-    this.dataSource = new MatTableDataSource(this.posts);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   public applyFilter(event: Event): void {

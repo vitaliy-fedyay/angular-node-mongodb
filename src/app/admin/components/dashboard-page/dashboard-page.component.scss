@@ -2,6 +2,10 @@ table {
   width: 100%;
 }
 
+.table {
+  margin-top: 4vh;
+}
+
 .mat-form-field {
   font-size: 14px;
   width: 100%;
@@ -9,6 +13,7 @@ table {
 
 td, th {
   width: 25%;
+  font-weight: bold;
 }
 
 h1 {
