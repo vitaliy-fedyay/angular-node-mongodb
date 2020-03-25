@@ -11,11 +11,20 @@ table {
   width: 100%;
 }
 
-td, th {
-  width: 25%;
+td,
+th {
+  width: 20%;
   font-weight: bold;
 }
 
 h1 {
   text-align: center;
+}
+
+.button {
+  display: inline-block;
+}
+
+.button button {
+  margin: 0 5px;
 }

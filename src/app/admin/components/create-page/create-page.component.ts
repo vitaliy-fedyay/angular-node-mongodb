@@ -18,7 +18,7 @@ export class CreatePageComponent implements OnInit {
   constructor(
     private postAdminService: PostAdminService,
     private router: Router
-    ) {
+  ) {
     this.model = new Post();
     this.form = new AdminFormPost(this.model);
   }
@@ -37,9 +37,9 @@ export class CreatePageComponent implements OnInit {
       author: this.formGetter.author.value,
       date: new Date()
     };
-    console.log(post);
-    this.postAdminService.createPost(post).subscribe( () => this.form.formGroup.reset());
-    this.router.navigateByUrl('/admin/dashboard')
+    this.postAdminService.createPost(post).subscribe(() => this.form.formGroup.reset());
+    this.postAdminService.createPost(post);
+    this.router.navigateByUrl('/admin/dashboard');
   }
 
 }

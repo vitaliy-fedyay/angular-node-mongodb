@@ -45,11 +45,11 @@ import { AdminGuard } from './guards/admin.guard';
     RouterModule.forChild([
       {
         path: '', component: AdminComponent, children: [
-          { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
+          { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
           { path: 'login', component: LoginPageComponent },
           { path: 'dashboard', component: DashboardPageComponent, canActivate: [AdminGuard] },
           { path: 'create', component: CreatePageComponent, canActivate: [AdminGuard] },
-          { path: 'post/:id/edit', component: EditPageComponent, canActivate: [AdminGuard] },
+          { path: 'edit', component: EditPageComponent, canActivate: [AdminGuard] },
         ]
       }
     ])

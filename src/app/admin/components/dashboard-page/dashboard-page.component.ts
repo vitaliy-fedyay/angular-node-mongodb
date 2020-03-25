@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PostAdminService } from '../../services/post-admin.service';
 import { Post } from '../../model/post.model';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -16,18 +17,20 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   public posts: Post[] = [];
   public postSubscription: Subscription;
   public dataSource: MatTableDataSource<Post>;
-  public displayedColumns: string[] = ['id', 'title', 'author', 'date'];
+  public displayedColumns: string[] = ['id', 'title', 'author', 'date', 'button'];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private postAdminService: PostAdminService) { }
+  constructor(
+    private postAdminService: PostAdminService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.postSubscription = this.postAdminService.getAllPost()
       .subscribe(
         (data: Post[]) => {
-          console.log(data);
           this.posts = data;
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.paginator = this.paginator;
@@ -41,6 +44,15 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  public openPost(_id: string): void {
+    this.router.navigate(['/admin/edit'], { queryParams: { _id } })
+  }
+
+  public deletePost(id: any): void {
+    const postId = { _id: id }
+    this.postAdminService.deletePost(postId).subscribe(data => console.log(data))
   }
 
   ngOnDestroy(): void {
