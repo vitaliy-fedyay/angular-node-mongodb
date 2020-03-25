@@ -1,12 +1,12 @@
-<h1>Post manager</h1>
-<mat-form-field>
+<h2>Post manager</h2>
+<mat-form-field class="input">
   <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)">
+  <input  matInput (keyup)="applyFilter($event)">
 </mat-form-field>
 
 <div class="table mat-elevation-z8">
-  <table mat-table *ngIf='dataSource' [dataSource]='dataSource' matSort>
-
+  <table mat-table [dataSource]='dataSource' *ngIf='dataSource; else loading' matSort>
+    
     <!-- ID Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
@@ -48,3 +48,7 @@
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
+
+<ng-template class="loading" #loading>
+  <p>Table is loading...</p>
+</ng-template>

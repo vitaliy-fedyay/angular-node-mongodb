@@ -28,14 +28,18 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.getAllPosts();
+  }
+
+  public getAllPosts(): void {
     this.postSubscription = this.postAdminService.getAllPost()
-      .subscribe(
-        (data: Post[]) => {
-          this.posts = data;
-          this.dataSource = new MatTableDataSource(data);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        });
+    .subscribe(
+      (data: Post[]) => {
+        this.posts = data;
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
   }
 
   public applyFilter(event: Event): void {
@@ -46,13 +50,13 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  public openPost(_id: string): void {
-    this.router.navigate(['/admin/edit'], { queryParams: { _id } })
+  public openPost(id: string): void {
+    this.router.navigate(['/admin/edit'], { queryParams: { id } });
   }
 
   public deletePost(id: any): void {
-    const postId = { _id: id }
-    this.postAdminService.deletePost(postId).subscribe(data => console.log(data))
+    this.postAdminService.deletePost(id).subscribe(data => console.log(data));
+    this.getAllPosts();
   }
 
   ngOnDestroy(): void {
