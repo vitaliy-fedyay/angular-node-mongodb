@@ -12,7 +12,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class PostPageComponent implements OnInit {
 
-  public post$: Observable<Post>
+  public post$: Observable<Post>;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,8 +22,8 @@ export class PostPageComponent implements OnInit {
   ngOnInit(): void {
     this.post$ = this.route.params
       .pipe(switchMap((params: Params) => {
-        return this.postService.getByIdPost(params['id'])
-      }))
+        return this.postService.getByIdPost(params.id);
+      }));
   }
 
 }

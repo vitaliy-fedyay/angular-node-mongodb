@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -55,6 +57,8 @@ import { PostComponent } from './components/post/post.component';
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
+    MatIconModule,
+    MatMenuModule,
     EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot(reducer, {}),
   ],

@@ -4,6 +4,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,6 +41,9 @@ import { AdminGuard } from './guards/admin.guard';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
+    MatInputModule,
+    MatIconModule,
+    MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
