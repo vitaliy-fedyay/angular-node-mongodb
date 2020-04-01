@@ -1,7 +1,18 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Search</mat-label>
+    <input matInput [(ngModel)]="query" name="search">
+  </mat-form-field>
+</form>
+
 <div *ngIf="posts$ | async as posts; else loading">
-  <app-post *ngFor="let post of posts" [post]="post"></app-post>
+  <app-post *ngFor="let post of posts | search : query" [post]="post"></app-post>
 </div>
 
 <ng-template #loading>
   <p class="loading">Loading posts...</p>
 </ng-template>
+
+<div class="paginator">
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

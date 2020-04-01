@@ -4,7 +4,7 @@
   <input  matInput (keyup)="applyFilter($event)">
 </mat-form-field>
 
-<div class="table mat-elevation-z8">
+<div class="container table mat-elevation-z8">
   <table mat-table [dataSource]='dataSource' *ngIf='dataSource; else loading' matSort>
     
     <!-- ID Column -->
