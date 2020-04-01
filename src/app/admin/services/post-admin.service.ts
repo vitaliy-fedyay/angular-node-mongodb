@@ -21,7 +21,6 @@ export class PostAdminService {
 
   public deletePost(id: any): Observable<any> {
     id = { _id : id };
-    console.log(id);
     return this.http.post<any>(`${environment.apiUrl}admin-post-delete`, id);
   }
 

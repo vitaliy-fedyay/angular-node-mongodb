@@ -32,11 +32,9 @@ export class EditPageComponent implements OnInit {
     this.activatedRoute.queryParams.pipe(
       switchMap((params: Params) => {
         this.postId = params.id;
-        console.log('get query params ' + this.postId);
         return this.postAdminService.getByIdPost(this.postId);
       })
     ).subscribe((post: Post) => {
-      console.log(JSON.stringify(post));
       this.post = post;
       this.form = new FormGroup({
           title: new FormControl(post.title, Validators.required),

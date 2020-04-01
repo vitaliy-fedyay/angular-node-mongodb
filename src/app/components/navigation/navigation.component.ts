@@ -11,17 +11,19 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class NavigationComponent implements OnInit {
 
+  public token;
+
   constructor(
     private store: Store<AppState>,
     private cookie: CookieService
   ) { }
 
-  public token = this.cookie.get('user');
-
   ngOnInit(): void {
+    this.token = this.cookie.get('user');
   }
 
   public logout(): void {
+
     this.store.dispatch(new Logout());
   }
 

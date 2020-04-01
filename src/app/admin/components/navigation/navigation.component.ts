@@ -15,11 +15,10 @@ export class AdminNavigationComponent implements OnInit {
   constructor(
     private router: Router,
     private authAdminService: AuthAdminService
-  ) {
-    this.token = this.authAdminService.currentUserValue;
-  }
+  ) { }
 
   ngOnInit(): void {
+    this.token = this.authAdminService.currentTokenValue;
   }
 
   public logout(): void {

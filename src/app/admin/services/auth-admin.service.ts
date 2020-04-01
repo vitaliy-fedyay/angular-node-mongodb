@@ -12,19 +12,19 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class AuthAdminService {
 
-  private currentUserSubject: BehaviorSubject<Admin>;
+  private currentTokenSubject: BehaviorSubject<Admin>;
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private cookie: CookieService
   ) {
-    this.currentUserSubject = new BehaviorSubject<Admin>(
+    this.currentTokenSubject = new BehaviorSubject<Admin>(
       this.cookie.check('admin') ? JSON.parse(this.cookie.get('admin')) : null);
   }
 
-  public get currentUserValue(): Admin {
-    return this.currentUserSubject.value;
+  public get currentTokenValue(): Admin {
+    return this.currentTokenSubject.value;
   }
 
   public getToken(): string {
@@ -43,7 +43,7 @@ export class AuthAdminService {
 
   public logout(): void {
     this.cookie.delete('admin');
-    this.currentUserSubject.next(null);
+    this.currentTokenSubject.next(null);
   }
 
 }
