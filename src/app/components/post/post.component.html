@@ -9,8 +9,14 @@
       <mat-card-subtitle>{{post.date | date:'medium'}}</mat-card-subtitle>
     </div>
 
+    <mat-card-content>
+      <p>
+        <quill-view-html [content]="post.content"></quill-view-html>
+      </p>
+    </mat-card-content>
+
     <mat-card-actions>
-      <button mat-button [routerLink]="['/post', post._id]">Open</button>
+      <button mat-flat-button color="primary" [routerLink]="['/post', post._id]">Open</button>
     </mat-card-actions>
   </mat-card>
 </div>

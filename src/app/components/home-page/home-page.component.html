@@ -5,7 +5,7 @@
   </mat-form-field>
 </form>
 
-<div *ngIf="posts$ | async as posts; else loading">
+<div class="posts" *ngIf="posts$ | async as posts; else loading">
   <app-post *ngFor="let post of posts | search : query" [post]="post"></app-post>
 </div>
 

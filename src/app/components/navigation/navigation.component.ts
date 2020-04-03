@@ -23,7 +23,6 @@ export class NavigationComponent implements OnInit {
   }
 
   public logout(): void {
-
     this.store.dispatch(new Logout());
   }
 
