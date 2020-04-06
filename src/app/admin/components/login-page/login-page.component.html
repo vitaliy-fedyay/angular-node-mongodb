@@ -5,16 +5,13 @@
   <form class="form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit()">
 
     <mat-form-field class="full-width">
-      <mat-label>Enter email:</mat-label>
-      <input matInput type="email" placeholder="Enter email" formControlName="email" name="email" id="email">
-      <mat-error *ngIf="form.formGroup.controls['email'].touched">required email</mat-error>
-      <mat-error *ngIf="form.formGroup.controls['email'].dirty && form.formGroup.controls['email'].invalid">
-        email must be email@gmail.com
-      </mat-error>
+      <mat-label>Enter login</mat-label>
+      <input matInput type="login" placeholder="Enter login" formControlName="login" name="login" id="login">
+      <mat-error *ngIf="form.formGroup.controls['login'].touched">required login</mat-error>
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <mat-label>Enter pasword:</mat-label>
+      <mat-label>Enter pasword</mat-label>
       <input matInput type="password" placeholder="Enter password" formControlName="password" name="password"
         id="password">
       <mat-error *ngIf="form.formGroup.controls['password'].touched">required password</mat-error>
