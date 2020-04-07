@@ -7,6 +7,9 @@
       "severity": "warning"
     },
     "component-class-suffix": true,
+    "variable-name": [
+      "allow-leading-underscore"
+    ],
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
     "directive-selector": [

@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
 	<mat-toolbar-row>
-		<span class="logo" [routerLink]="['/']" routerLinkActive="router-link-active" >Angular Blog</span>
+		<span class="logo" [routerLink]="['/']" routerLinkActive="router-link-active">Angular Blog</span>
 		<span class="example-spacer"></span>
-		<span *ngIf="token" class="logout" (click)="logout()">Logout</span>
+		<span *ngIf="isLoggedIn$ | async" class="logout" (click)="logout()">Logout</span>
 	</mat-toolbar-row>
 </mat-toolbar>

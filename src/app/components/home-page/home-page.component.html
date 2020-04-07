@@ -6,7 +6,9 @@
 </form>
 
 <div class="posts" *ngIf="posts$ | async as posts; else loading">
-  <app-post *ngFor="let post of posts | search : query" [post]="post"></app-post>
+  <app-post *ngFor="let post of posts | search : query | paginate: { itemsPerPage: 3, currentPage: page }"
+    [post]="post">
+  </app-post>
 </div>
 
 <ng-template #loading>
@@ -14,5 +16,5 @@
 </ng-template>
 
 <div class="paginator">
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div>

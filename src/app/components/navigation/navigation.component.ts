@@ -3,6 +3,8 @@ import { Logout } from '../../store/actions/auth.action';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.states';
 import { CookieService } from 'ngx-cookie-service';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -11,18 +13,20 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class NavigationComponent implements OnInit {
 
-  public token;
+  public isLoggedIn$: Observable<boolean>;
 
   constructor(
     private store: Store<AppState>,
+    private authService: AuthService,
     private cookie: CookieService
   ) { }
 
   ngOnInit(): void {
-    this.token = this.cookie.get('user');
+    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 
   public logout(): void {
+    this.authService.logout();
     this.store.dispatch(new Logout());
   }
 

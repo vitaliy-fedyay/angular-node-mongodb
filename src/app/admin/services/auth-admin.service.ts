@@ -5,26 +5,22 @@ import { Admin } from '../model/admin.model';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthAdminService {
 
-  private currentTokenSubject: BehaviorSubject<Admin>;
+  private loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private cookie: CookieService
-  ) {
-    this.currentTokenSubject = new BehaviorSubject<Admin>(
-      this.cookie.check('admin') ? JSON.parse(this.cookie.get('admin')) : null);
-  }
+  ) { }
 
-  public get currentTokenValue(): Admin {
-    return this.currentTokenSubject.value;
+  public get isLoggedIn() {
+    return this.loggedIn.asObservable();
   }
 
   public getToken(): string {
@@ -36,6 +32,7 @@ export class AuthAdminService {
       .subscribe((data) => {
         if (data) {
           this.cookie.set('admin', JSON.stringify(data.token));
+          this.loggedIn.next(true);
           this.router.navigateByUrl('admin/dashboard');
         }
       });
@@ -43,7 +40,7 @@ export class AuthAdminService {
 
   public logout(): void {
     this.cookie.delete('admin');
-    this.currentTokenSubject.next(null);
+    this.loggedIn.next(false);
   }
 
 }

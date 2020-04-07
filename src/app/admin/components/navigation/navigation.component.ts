@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class AdminNavigationComponent implements OnInit {
 
-  public token;
+  public isLoggedIn$: Observable<boolean>;
 
   constructor(
     private router: Router,
@@ -18,7 +18,7 @@ export class AdminNavigationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.token = this.authAdminService.currentTokenValue;
+    this.isLoggedIn$ = this.authAdminService.isLoggedIn;
   }
 
   public logout(): void {
