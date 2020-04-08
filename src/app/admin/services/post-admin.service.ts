@@ -20,12 +20,12 @@ export class PostAdminService {
   }
 
   public deletePost(id: any): Observable<any> {
-    id = { _id : id };
+    id = { _id: id };
     return this.http.post<any>(`${environment.apiUrl}admin-post-delete`, id);
   }
 
   public getByIdPost(id: any): Observable<any> {
-    id = { _id : id };
+    id = { _id: id };
     return this.http.post<any>(`${environment.apiUrl}admin-post`, id);
   }
 
